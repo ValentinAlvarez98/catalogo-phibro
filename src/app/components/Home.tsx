@@ -27,9 +27,9 @@ export function Home() {
                               transition={{ duration: 0.6 }}
                         />
                         <div className={'flex flex-col gap-20'}>
-                              <PhibroButton title={"INSTITUCIONAL"} primaryColor={"green"} secondColor={"blue"} index={1} link={'institucional'}></PhibroButton>
-                              <PhibroButton title={"SOLUCIONES PHIBRO"} primaryColor={"green"} secondColor={"blue"} index={2} link={'catalogo'}></PhibroButton>
-                              <PhibroButton title={"AMIGO DEL BOSQUE"} primaryColor={"green"} secondColor={"blue"} index={3} link={'bosque'}></PhibroButton>
+                              <PhibroButton title={"INSTITUCIONAL"} variant={true} index={1} link={'institucional'}></PhibroButton>
+                              <PhibroButton title={"SOLUCIONES PHIBRO"} variant={true} index={2} link={'catalogo'}></PhibroButton>
+                              <PhibroButton title={"AMIGO DEL BOSQUE"} variant={true} index={3} link={'bosque'}></PhibroButton>
                         </div>
                   </div>
             </>

@@ -4,13 +4,12 @@ import Link from 'next/link'
 
 export type PhibroButtonProps = {
       title: string;
-      primaryColor: string;
-      secondColor: string;
-      index: number;  // Este índice nos ayudará a alternar las animaciones
-      link: string;
+      variant?:boolean;
+      index?: number;  // Este índice nos ayudará a alternar las animaciones
+      link?: string;
 }
 
-export function PhibroButton({ title, primaryColor, secondColor, index, link }: PhibroButtonProps) {
+export function PhibroButton({ title, variant, index, link }: PhibroButtonProps) {
 
       // Animaciones de entrada, alternando entre derecha e izquierda
       const buttonVariants = {
@@ -29,7 +28,7 @@ export function PhibroButton({ title, primaryColor, secondColor, index, link }: 
       };
 
       return (
-            <Link href={`/${link}`}>
+            <Link href={`http://localhost:3000/${link}`}>
                   <motion.div
                         className="relative inline-block"
                         variants={buttonVariants}
@@ -39,12 +38,12 @@ export function PhibroButton({ title, primaryColor, secondColor, index, link }: 
                   >
                         {/* Capa detrás del botón que simula el borde */}
                         <div
-                              className={`absolute top-0 left-0 w-full h-full translate-x-4 translate-y-3 border-4 border-${secondColor} skew-x-12`}
+                              className={`absolute top-0 left-0 w-full h-full translate-x-4 translate-y-3 border-4 ${variant ? "border-blue" : "border-green"} skew-x-12`}
                         ></div>
 
                         {/* El botón real */}
                         <motion.button
-                              className={`relative z-10 inline-flex items-center justify-center w-[500px] py-9 text-4xl font-bold text-white bg-${primaryColor} transform skew-x-12`}
+                              className={`relative z-10 inline-flex items-center justify-center w-[500px] py-9 text-4xl font-bold text-white ${variant ? "bg-green" : "bg-blue"} transform skew-x-12`}
                         >
                               <motion.span
                                     className="flex items-center transform -skew-x-12"

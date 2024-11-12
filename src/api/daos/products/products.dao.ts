@@ -18,6 +18,25 @@ export class ProductsDao extends PrismaClient {
 
       }
 
+      async findAllIdsByCategory(categoryId: string) {
+
+            const result = await this.product.findMany({
+                  where: {
+                        categoryId: categoryId
+                  },
+                  select: {
+                        id: true,
+                        name: true,
+                  },
+                  orderBy: {
+                        name: 'asc'
+                  }
+            });
+
+            return result;
+
+      }
+
       async findAllByCategory(categoryId: string) {
 
             const result = await this.product.findMany({
@@ -30,10 +49,32 @@ export class ProductsDao extends PrismaClient {
                                     flag: true
                               }
                         }
+                  },
+                  orderBy: {
+                        name: 'asc'
                   }
             });
 
             return result;
+
+      }
+
+      async findById(productId: string) {
+
+            const result = await this.product.findUnique({
+                  where: {
+                        id: productId
+                  },
+                  include: {
+                        countries: {
+                              select: {
+                                    flag: true
+                              }
+                        }
+                  },
+            })
+
+            return result
 
       }
 

@@ -1,50 +1,40 @@
+import { PhibroButton } from "@/app/components/PhibroButton"
+import { PhibroNavegation } from "@/app/components/PhibroNavegation"
 import { fetchProducts } from "@/app/utils"
 
-
-export default async function EspecialidadesNutricionalesPage() {
-
+export default async function AnticoccidianosYAntibioticosPage() {
       const products = await fetchProducts("2")
 
       console.log(products)
 
       return (
             <>
-                  <h1
-                        className="text-4xl text-center font-bold mt-8"
-                  >Especialidades Nutricionales</h1>
+   <div id='marcoYHojas' className="absolute inset-0 z-0"></div>
 
-                  {products.map((product) => (
-                        <ul key={product.id} className="
-                  flex flex-col space-y-2 justify-center items-start ml-80
-                  
-                  ">
-                              <li><strong>ID:</strong> {product.id}</li>
-                              <li><strong> CreatedAt: </strong> {product.createdAt}</li>
-                              <li><strong>UpdatedAt: </strong> {product.updatedAt}</li>
-                              <li ><strong>Name: </strong>  {product.name}</li>
-                              <li><strong>Type: </strong> {product.type} </li>
-                              <li><strong>Description: </strong> {product.description}</li>
-                              <li> <strong>Logo: </strong>
-                                    <img src={product.logo} alt="logo"
-                                          className="w-20 h-20"
-                                    />
-                              </li>
-                              <li><strong>Composition: </strong>{product.composition}</li>
-                              <li><strong>Category: </strong>{product.categoryId}</li>
-                              {product.presentation && <li><strong>Presentation:</strong> {product.presentation}</li>}
-                              {product.qr && <li><strong>QR:</strong> {product.qr}</li>}
-                              <li> <strong>Countries:</strong>
-                                    {product.countries.map((country) => (
+   <PhibroNavegation back={"/catalogo"} nextStep={"catalogo/2"} position={false} />
 
-                                          <img key={country.flag} src={country.flag}
-                                                className="w-10 h-10 mt-2 mb-2"
-                                                alt="flag" />
-                                    ))}
-                              </li>
-                        </ul>
-                  ))}
+   <div className=" relative flex flex-col items-center justify-center gap-20 min-h-screen ">
+
+   <PhibroButton title={"ANTICOCCIDIANOS Y ANTIBIÓTICOS"} variant={false} index={4} link={"/catalogo/1"} ></ PhibroButton>
+
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-8 px-8">
+
+      
+{products.map((product) => (
+      <div key={product.id} className="border rounded-lg p-4 shadow-md">
+            
+            <img 
+                  src={product.logo} 
+                  alt="logo" 
+                  className="w-20 h-20"
+            />
+          
+      </div>
+))}
+</div> 
+
+</div>
 
             </>
       )
-
 }

@@ -1,6 +1,6 @@
 // utils/api.ts
 import { envs } from "@/api/config/envs";
-import { ProductsResponse } from "../types";
+import { ProductsResponse, ProductResponse } from "../types";
 
 export type FormResponse = {
 
@@ -57,6 +57,13 @@ export async function fetchCreateForm(body: object): Promise<FormResponse> {
 export async function fetchProducts(categoryId: string): Promise<ProductsResponse[]> {
 
       const data = await fetchData<ProductsResponse[]>(`${envs.API_URL}/products?categoryId=${categoryId}`);
+      return data;
+
+}
+
+export async function fetchProduct(productId: string ,categoryId: string): Promise<ProductResponse> {
+
+      const data = await fetchData<ProductResponse>(`${envs.API_URL}/products/ById?productId=${productId}&categoryId=${categoryId}`);
       return data;
 
 }

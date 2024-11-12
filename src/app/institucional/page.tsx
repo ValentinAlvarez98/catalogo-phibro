@@ -1,4 +1,7 @@
+import { Subtitle } from "../components/Boards/Subtitle";
+import { Title } from "../components/Boards/Title";
 import { PhibroNavegation } from "../components/PhibroNavegation";
+
 
 
 export default async function InstitucionalPage() {
@@ -6,9 +9,17 @@ export default async function InstitucionalPage() {
 
       return (
 
-            <>
-                  <PhibroNavegation back={"/institucional"} position={true} />
-            </>
+            <div className="mt-80">
+                  <PhibroNavegation  nextStep={"institucional/2"} position={true} />
+                  <Title title={"INSTITUCIONAL"} marginBottom />
+                  <section className="flex flex-col gap-40 items-center justify-center w-full">
+                     
+                  <Subtitle title={"PROPÓSITO"} position={"right"} text={"Optimizar la salud y la nutrición de los animalespara una vida mejor y un mundo más sustentable."}/>
+              
+                 
+                  <Subtitle title={"MISIÓN"} position={"left"}  text={"Brindando soluciones seguras y efectivas para los desafíos únicos de nuestros clientes"}/>
+                  </section>
+            </div>
 
       )
 

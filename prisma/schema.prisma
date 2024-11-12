@@ -74,5 +74,7 @@ model Product {
   categoryId   String
   presentation String?
   qr           String?
+  navigationId Int @default(autoincrement())
   countries    Country[] @relation("ProductCountries")
+  
 }
