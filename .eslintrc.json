@@ -1,0 +1,36 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "overrides": [
+    {
+      "files": ["src/api/**/*.ts", "src/api/**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["src/app/components/ParticlesBackground.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-empty-object-type": "off"
+      }
+    },
+    {
+      "files": ["src/app/api/gameForm/route.ts"],
+      "rules": {
+        "@typescript-eslint/no-unused-expressions": "off"
+      }
+    },
+    {
+      "files": ["src/app/components/RegistrationForm.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}
+

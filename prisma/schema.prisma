@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cards     Card[]
+}
+
+model Card {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  value     String
+  game      Game     @relation(fields: [gameId], references: [id])
+  gameId    String
+}
+
+model GameForm {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  email     String   @unique
+  country   String   @default("Uruguay")
+
+  // relation 1:1 with ScoreBoard
+  // scoreBoard ScoreBoard?
+}
+
+model ScoreBoard {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  score     Int
+
+  // relation 1:1 with GameForm
+  // player GameForm @relation(fields: [ci], references: [ci])
+  // ci     String   @unique
+}
+
+model Country {
+  id        String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  flag      String
+  name      String
+  products  Product[] @relation("ProductCountries")
+}
+
+model Product {
+  id           String    @id @default(cuid())
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  name         String
+  type         String
+  description  String
+  logo         String
+  composition  String
+  categoryId   String
+  presentation String?
+  qr           String?
+  countries    Country[] @relation("ProductCountries")
+}
