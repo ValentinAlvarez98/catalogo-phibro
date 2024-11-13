@@ -12,24 +12,19 @@ interface ProductsPageProps {
   };
 }
 
-// Función para cargar el producto
-async function getProduct(id: string): Promise<ProductResponse> {
-  return fetchProduct(id, '1');
+// Componente que manejará la carga asíncrona del producto
+const LoadProduct = async (id: string) => {
+  const product: ProductResponse = await fetchProduct(id, '2');
+  return <Product product={product} />;
 }
 
-// Componente principal de la página
 export default function ProductPage({ params }: ProductsPageProps) {
-  const { id } = params;
 
-  // El componente `LoadProduct` carga los datos de manera asíncrona en el servidor
-  const LoadProduct = async () => {
-    const product = await getProduct(id);
-    return <Product product={product} />;
-  };
+      const id =  params.id;
 
   return (
     <Suspense fallback={<Loading />}>
-      <LoadProduct /> {/* No utilizamos await aquí directamente */}
+      {LoadProduct(params.id)}
     </Suspense>
   );
 }

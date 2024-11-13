@@ -1,34 +1,99 @@
-'use client'
-import { PhibroNavegation } from "../PhibroNavegation"
-import { Title } from "../Boards/Title"
-import { motion } from 'framer-motion'
+'use client';
+import { PhibroNavegation } from "../PhibroNavegation";
+import { Title } from "../Boards/Title";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export function Bosque() {
 
-      return (
+  // Definimos variantes para las animaciones de izquierda y derecha
+  const textVariants = {
+    hiddenLeft: { opacity: 0, x: -100 },
+    hiddenRight: { opacity: 0, x: 100 },
+    visible: { opacity: 1, x: 0 },
+  };
 
-            <div className="mt-80">
-                  <PhibroNavegation nextStep={"products/4"} position={true} />
-                  <Title title={"AMIGO DEL BOSQUE"} marginBottom />
+  return (
+    <div className="mt-[350px]">
+      <PhibroNavegation nextStep={"bosque/2"} position={true} />
 
-                  <motion.img
-                        src="/imgs/logo.png"
-                        alt="Phibro Logo"
-                        /* This logo should be at bottom left */
-                        className="w-80 md:w-80 fixed bottom-40 right-32 ml-8 mb-8"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                  />
+      <Title title={"AMIGO DEL BOSQUE"} marginBottom />
 
-                  <div className="-z-10 bg-green w-[85%] py-2 -skew-x-12 shadow-xl fixed bottom-36 left-0">
+      <div className="container mx-auto flex flex-col gap-6 px-40 mt-20 text-[29px] text-blue">
+        
+        {/* Primer párrafo - aparece desde la izquierda */}
+        <motion.p
+          initial="hiddenLeft"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+        >
+          Una iniciativa especial promovida por <strong>Phibro</strong> para
+          <strong> OVUM 2024</strong>, que acerca al público una experiencia
+          innovadora y sostenible.
+        </motion.p>
 
+        {/* Segundo párrafo - aparece desde la derecha */}
+        <motion.p
+          initial="hiddenRight"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Participando en nuestro juego interactivo
+          y encontrando todos los productos correspondientes,
+          tendrás la oportunidad de recoger el peluche
+          y de contribuir a plantar un árbol.
+        </motion.p>
 
-                  </div>
+        <div className="-mr-[240px] w-[800px] h-[270px] place-self-end -skew-x-12 shadow-2xl">
+          <Image
+            src="/imgs/bosqueFondo.jpg"
+            alt="Bosque"
+            fill={true}
+            objectFit="cover"
+            className="z-0"
+          />
+        </div>
 
+        {/* Tercer párrafo - aparece desde la izquierda */}
+        <motion.p
+          initial="hiddenLeft"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          La plantación correrá a cargo del programa
+          <strong> Amigo del Bosque</strong> de la ONG Iniciativa Verde,
+          dedicada a la reforestación y la preservación
+          del medio ambiente.
+        </motion.p>
 
-            </div>
+        {/* Cuarto párrafo - aparece desde la derecha */}
+        <motion.p
+          initial="hiddenRight"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <strong>Phibro</strong> ha donado árboles para esta acción,
+          compensando el impacto medioambiental
+          del evento y reforzando su compromiso con
+          la sostenibilidad y el medio ambiente.
+        </motion.p>
 
-      )
-
+        {/* Quinto párrafo - aparece desde la izquierda */}
+        <motion.p
+          initial="hiddenLeft"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          ¡Únete a nosotros y forma parte de esta
+          acción que reúne diversión, aprendizaje
+          y responsabilidad medioambiental!
+        </motion.p>
+      </div>
+    </div>
+  );
 }

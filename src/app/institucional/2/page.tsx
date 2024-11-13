@@ -1,15 +1,14 @@
 import { Title } from "@/app/components/Boards/Title";
 import { PhibroNavegation } from "../../components/PhibroNavegation";
 import { Subtitle } from "@/app/components/Boards/Subtitle";
-
-
-export default async function InstitucionalPage2() {
+import { Qr } from "@/app/components/Qr";
+export default  function InstitucionalPage2() {
 
 
       return (
 
             <>
-                <div className="mt-80">
+                <div className="mt-[400px]">
                   <PhibroNavegation back={"/institucional"} position  />
                   <Title title={"INSTITUCIONAL"} marginBottom/>
                   <section className="flex flex-col gap-10 items-center justify-center w-full">
@@ -19,7 +18,9 @@ export default async function InstitucionalPage2() {
                  
                   <Subtitle title={"CONOZCA NUESTRO INFORME ESG"} position={"left"} />
                   </section>
+                  
                   </div>
+                  <Qr qr={'/imgs/qrs/qrInstitucional.jpg' } />
             </>
 
       )

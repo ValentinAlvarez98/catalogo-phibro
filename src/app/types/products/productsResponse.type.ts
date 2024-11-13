@@ -1,5 +1,4 @@
 
-
 export type ProductsResponse = {
 
       id: string;
