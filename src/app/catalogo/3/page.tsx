@@ -5,13 +5,11 @@ export default async function AdsorbentesYMineralesPage() {
 
       const products = await fetchProducts("3")
 
-      console.log(products)
-
       return (
             <>
                   <h1
                         className="text-4xl text-center font-bold mt-8"
-                  >Adsorbentes y Minerales</h1>
+                  >ADSORBENTES Y MINERALES</h1>
 
                   {products.map((product) => (
                         <ul key={product.id} className="

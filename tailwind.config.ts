@@ -71,7 +71,10 @@ const config: Config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			}
+			},
+			fontFamily: {
+        sans: ['League Spartan', 'Arial', 'Helvetica', 'sans-serif'],
+      },
 		}
 	},
 	variants: {

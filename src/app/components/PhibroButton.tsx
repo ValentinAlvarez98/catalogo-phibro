@@ -4,12 +4,13 @@ import Link from 'next/link'
 
 export type PhibroButtonProps = {
       title: string;
-      variant?:boolean;
+      variant?: boolean;
       index?: number;  // Este índice nos ayudará a alternar las animaciones
       link?: string;
+      chiquito?: string;  // Si está presente, el botón será más pequeño
 }
 
-export function PhibroButton({ title, variant, index, link }: PhibroButtonProps) {
+export function PhibroButton({ title, variant, index, link, chiquito }: PhibroButtonProps) {
 
       // Animaciones de entrada, alternando entre derecha e izquierda
       const buttonVariants = {
@@ -27,6 +28,9 @@ export function PhibroButton({ title, variant, index, link }: PhibroButtonProps)
             transition: { duration: 0.1 },
       };
 
+      // Definir el tamaño y padding según el parámetro 'chiquito'
+      const buttonSize = chiquito ? 'w-[280px] py-2 px-3 text-2xl' : 'w-[500px] py-9 text-4xl';
+
       return (
             <Link href={`http://localhost:3000/${link}`}>
                   <motion.div
@@ -43,7 +47,7 @@ export function PhibroButton({ title, variant, index, link }: PhibroButtonProps)
 
                         {/* El botón real */}
                         <motion.button
-                              className={`relative z-10 inline-flex items-center justify-center w-[500px] py-9 text-4xl font-bold text-white ${variant ? "bg-green" : "bg-blue"} transform skew-x-12`}
+                              className={`relative z-10 inline-flex items-center justify-center ${buttonSize} font-bold text-white ${variant ? "bg-green" : "bg-blue"} transform skew-x-12`}
                         >
                               <motion.span
                                     className="flex items-center transform -skew-x-12"

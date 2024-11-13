@@ -21,7 +21,7 @@ export function Home() {
                         <motion.img
                               src="/imgs/logo.png"
                               alt="Phibro Logo"
-                              className="absolute w-80 md:w-80 top-72"
+                              className="absolute w-[550px] md:w-[550px] top-72 mt-36"
                               initial={{ opacity: 0, y: -50 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.6 }}

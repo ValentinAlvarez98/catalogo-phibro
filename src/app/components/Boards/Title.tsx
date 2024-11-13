@@ -1,26 +1,28 @@
-'use client'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+'use client';
 
-
+import { motion } from 'framer-motion';
 
 export type SubtitleProps = {
-
-    
       title: string;
       marginBottom?: boolean;
-
 }
 
-export function Title({ title,marginBottom} : SubtitleProps) {
-
-
-
-    
-    
+export function Title({ title, marginBottom }: SubtitleProps) {
       return (
-        <div className={`${marginBottom && "mb-20"} -z-10 text-white -ml-5 font-bold bg-green py-12 bold px-20 z-10 skew-x-12 shadow-xl  w-fit  `}>
-        <h1 className='-skew-x-12 text-6xl ml-40'>{title}</h1>
-      </div>
-      )
+            <motion.div
+                  initial={{ opacity: 0, x: -50, skewX: 12, zIndex: -10 }} // Agregamos zIndex aquí
+                  animate={{ opacity: 1, x: 0, skewX: 12, zIndex: -10 }} // Mantenemos el zIndex en la animación
+                  transition={{ duration: 0.5 }}
+                  className={`${marginBottom && "mb-20"} text-white -ml-5 font-bold bg-green py-12 bold px-20 shadow-xl w-fit relative`}
+            >
+                  <motion.h1
+                        initial={{ opacity: 0, y: -20, skewX: -12, zIndex: -10 }} // También en el h1 si es necesario
+                        animate={{ opacity: 1, y: 0, skewX: -12, zIndex: -10 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className=' text-6xl ml-40'
+                  >
+                        {title}
+                  </motion.h1>
+            </motion.div>
+      );
 }
