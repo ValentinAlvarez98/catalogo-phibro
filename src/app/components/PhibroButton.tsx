@@ -31,7 +31,7 @@ export function PhibroButton({ title, variant, index, link, chiquito }: PhibroBu
 
       return (
 
-            <Link href={`http://localhost:3000/${link}`}>
+            <Link href={`https://catalogo-phibro.vercel.app/${link}`}>
 
                   <motion.div
                         className="relative inline-block"

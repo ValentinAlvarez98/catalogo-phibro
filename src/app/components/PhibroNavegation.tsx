@@ -17,7 +17,7 @@ export function PhibroNavegation({ back, nextStep }: PhibroButtonProps) {
 
       {back && (
 
-        <Link href={`http://localhost:3000/${back}`}>
+        <Link href={`https://catalogo-phibro.vercel.app/${back}`}>
 
           <ChevronsLeft size={64} color='white' strokeWidth={3} className='z-20 -skew-x-12' />
 
@@ -25,14 +25,14 @@ export function PhibroNavegation({ back, nextStep }: PhibroButtonProps) {
 
       )}
 
-      <Link href={`http://localhost:3000/`} >
+      <Link href={`https://catalogo-phibro.vercel.app/`} >
 
         <SquareMenu size={64} color='white' strokeWidth={2} className=' z-20 -skew-x-12' />
 
       </Link>
 
       {nextStep &&
-        <Link href={`http://localhost:3000/${nextStep}`}>
+        <Link href={`https://catalogo-phibro.vercel.app/${nextStep}`}>
 
           <ChevronsRight size={64} color='white' strokeWidth={3} className='z-20 -skew-x-12' />
 
