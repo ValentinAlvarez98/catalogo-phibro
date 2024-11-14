@@ -1,15 +1,9 @@
-import { CountriesDao, GameFormDao, ProductsDao } from "@/api/daos";
-import { CountriesService, GameFormService, ProductsService } from "@/api/services";
+import { CountriesDao, ProductsDao } from "@/api/daos";
+import { CountriesService, ProductsService } from "@/api/services";
 
 
 
 export class ServiceFactory {
-
-      static getGameFormService(): GameFormService {
-
-            return new GameFormService(new GameFormDao());
-
-      }
 
       static getCountriesService(): CountriesService {
 

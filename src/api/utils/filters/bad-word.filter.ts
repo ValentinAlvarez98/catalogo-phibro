@@ -1,10 +1,8 @@
-// utils/bad-words.filter.ts
+
 import { Filter } from "bad-words";
 
-// Crear una instancia del filtro
 const customFilter = new Filter();
 
-// Extender el filtro con palabras y frases personalizadas
 const additionalBannedWords = [
       "puto",
       "trola",
@@ -36,5 +34,4 @@ const additionalBannedWords = [
 
 customFilter.addWords(...additionalBannedWords);
 
-// Exportar el filtro personalizado
 export default customFilter;

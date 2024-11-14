@@ -1,4 +1,4 @@
-// layout.tsx
+
 'use client';
 
 import { ReactNode } from 'react';
@@ -9,11 +9,13 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
+
   return (
+
     <>
       {children}
 
-      {/* Logo en la esquina inferior izquierda */}
+
       <motion.img
         src="/imgs/logo.png"
         alt="Phibro Logo"
@@ -23,8 +25,10 @@ export default function Layout({ children }: LayoutProps) {
         transition={{ duration: 0.6 }}
       />
 
-      {/* Div verde inclinado */}
+
       <div className="-z-10 bg-green w-[85%] py-2 -skew-x-12 shadow-xl fixed bottom-36 left-0"></div>
     </>
+
   );
+
 }

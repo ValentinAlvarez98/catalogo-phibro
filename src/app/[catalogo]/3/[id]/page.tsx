@@ -1,30 +1,35 @@
-// app/product/page.tsx
-
 import { Suspense } from "react";
 import { Product } from "@/app/components/Product";
 import { fetchProduct } from "@/app/utils";
 import { ProductResponse } from "@/app/types";
-import Loading from "@/app/loading";  // Asegúrate de tener el componente de carga
+import Loading from "@/app/loading";
 
-interface ProductsPageProps {
-  params: {
-    id: string;
-  };
+interface Params {
+  id: string;
 }
 
-// Componente que manejará la carga asíncrona del producto
 const LoadProduct = async (id: string) => {
+
   const product: ProductResponse = await fetchProduct(id, '3');
+
   return <Product product={product} />;
+
 }
 
-export default async function ProductPage({ params }: ProductsPageProps) {
 
-  const {id }=   params;
+export default async function ProductPage({ params }: { params: Promise<Params> }) {
+
+  const { id } = (await params);
 
   return (
+
     <Suspense fallback={<Loading />}>
+
       {LoadProduct(id)}
+
     </Suspense>
+
   );
+
 }
+

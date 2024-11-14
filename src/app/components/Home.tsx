@@ -1,23 +1,19 @@
 'use client'
+
 import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { ChevronRight, Check } from 'lucide-react';
-import { useState } from 'react'
 import { PhibroButton } from './PhibroButton';
 
 export function Home() {
 
-
-
       return (
+
             <>
 
-                  <div id='marcoYHojas' className="absolute inset-0 z-0"></div>
+                  <div id='marcoYHojas' className="absolute inset-0 z-0" />
 
-                  {/* Contenido principal */}
-                  <div className=" relative flex flex-col items-center justify-center   min-h-screen ">
 
-                        {/* Logo */}
+                  <div className=" relative flex flex-col items-center justify-center min-h-screen ">
+
                         <motion.img
                               src="/imgs/logo.png"
                               alt="Phibro Logo"
@@ -26,13 +22,21 @@ export function Home() {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.6 }}
                         />
+
                         <div className={'flex flex-col gap-20'}>
-                              <PhibroButton title={"INSTITUCIONAL"} variant={true} index={1} link={'institucional'}></PhibroButton>
-                              <PhibroButton title={"SOLUCIONES PHIBRO"} variant={true} index={2} link={'catalogo'}></PhibroButton>
-                              <PhibroButton title={"AMIGO DEL BOSQUE"} variant={true} index={3} link={'bosque'}></PhibroButton>
+
+                              <PhibroButton title={"INSTITUCIONAL"} variant={true} index={1} link={'institucional'} />
+
+                              <PhibroButton title={"SOLUCIONES PHIBRO"} variant={true} index={2} link={'catalogo'} />
+
+                              <PhibroButton title={"AMIGO DEL BOSQUE"} variant={true} index={3} link={'bosque'} />
+
                         </div>
+
                   </div>
+
             </>
+
       )
 
 }

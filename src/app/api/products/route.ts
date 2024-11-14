@@ -28,7 +28,9 @@ export async function POST(req: NextRequest) {
 
             let status = 500;
 
-            error instanceof CustomError ? status = error.status : null;
+            if (error instanceof CustomError) {
+                  status = error.status;
+            }
 
             return NextResponse.json(error, { status });
 
@@ -57,7 +59,9 @@ export async function GET(req: NextRequest) {
 
             let status = 500;
 
-            error instanceof CustomError ? status = error.status : null;
+            if (error instanceof CustomError) {
+                  status = error.status;
+            }
 
             return NextResponse.json(error, { status });
 

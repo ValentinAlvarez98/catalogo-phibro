@@ -1,26 +1,29 @@
-// app/anticoccidianos/page.tsx
+'use server'
 
-import { Suspense } from "react";
 import { fetchProducts } from "@/app/utils";
 import { ProductsResponse } from "@/app/types";
 import { Anticoccidianos } from "@/app/components/Products/1/Anticoccidianos";
-import Loading from "@/app/loading";  // Asegúrate de importar tu componente de loading
+import { Suspense } from "react";
+import Loading from "@/app/loading"
 
-// Componente que manejará la carga de productos
+
 const LoadProducts = async () => {
-  // Cargando productos de manera asíncrona
+
   const products: ProductsResponse[] = await fetchProducts("1");
+
   return <Anticoccidianos products={products} />;
 }
 
-export default function AnticoccidianosYAntibioticosPage() {
+export default async function EspecialidadesNutricionalesPage() {
+
   return (
-<>
+    <>
       <div id='marcoYHojas' className="absolute inset-0 z-0"></div>
 
-    <Suspense fallback={<Loading />}>
-      <LoadProducts />
-    </Suspense>
+      <Suspense fallback={<Loading />}>
+        <LoadProducts />
+      </Suspense>
+
     </>
-  );
+  )
 }
