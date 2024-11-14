@@ -19,7 +19,7 @@ async function fetchData<T>(url: string): Promise<T> {
             headers: {
                   'Content-Type': 'application/json',
             },
-            cache: 'no-store',
+            next: { revalidate: false }
       });
 
       if (!res.ok) {
@@ -35,7 +35,6 @@ async function fetchCreateData<T>(url: string, body: object): Promise<T> {
             headers: {
                   'Content-Type': 'application/json',
             },
-            cache: 'no-store',
             body: JSON.stringify(body),
       });
 

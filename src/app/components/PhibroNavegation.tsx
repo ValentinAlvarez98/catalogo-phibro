@@ -10,14 +10,11 @@ export type PhibroButtonProps = {
   position?: boolean;
 }
 
-const positionStyle = {
-  top: "top-40",
-  center: "top-72"
-}
+
 
 export function PhibroNavegation({ back, nextStep, position }: PhibroButtonProps) {
   return (
-    <div className={`-mr-60 w-[60%] flex gap-2 bg-blue py-4 pl-20 skew-x-12 absolute z-20 ${position ? positionStyle.top : positionStyle.center} text-black right-0`}>
+    <div className={`-mr-60 w-[60%] flex gap-2 bg-blue py-4 pl-20 skew-x-12 absolute z-20 top-48 text-black right-0`}>
       
       {back && (
         <Link href={`http://localhost:3000/${back}`}>

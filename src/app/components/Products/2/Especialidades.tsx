@@ -3,8 +3,9 @@
 import { PhibroButton } from "@/app/components/PhibroButton"
 import { PhibroNavegation } from "@/app/components/PhibroNavegation"
 import { ProductsResponse } from "@/app/types"
-import Link from "next/link"
+
 import { motion } from "framer-motion"
+import { ProductCard } from "../ProductCard"
 
 export function Especialidades({ products }: { products: ProductsResponse[] }) {
 
@@ -17,17 +18,17 @@ export function Especialidades({ products }: { products: ProductsResponse[] }) {
                               initial={{ opacity: 0, y: -20 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.5 }}
-
+  className="-mt-40"
                               whileTap={{ scale: 0.90 }}
                         >
-                              <PhibroButton title={"ANTICOCCIDIANOS Y ANTIBIÓTICOS"} variant={false} index={4} link={"/catalogo/1"} />
+                              <PhibroButton title={"ESPECIALIDADES NUTRICIONALES"} variant={false} index={4} link={"/catalogo/2"} />
                         </motion.div>
 
                         <motion.div
                               initial={{ opacity: 0 }}
                               animate={{ opacity: 1 }}
                               transition={{ duration: 0.5, delay: 0.2 }}
-                              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8 px-8"
+                              className="grid  lg:grid-cols-2  gap-8 mt-8 px-8"
                         >
                               {products.map((product, index) => (
                                     <motion.div
@@ -41,6 +42,14 @@ export function Especialidades({ products }: { products: ProductsResponse[] }) {
                               ))}
                         </motion.div>
                   </div>
+                  <motion.img
+        src="/imgs/logo.png"
+        alt="Phibro Logo"
+        className="w-64 md:w-64 fixed bottom-[320px] right-[250px] ml-8 mb-8"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      />
             </>
 
       )

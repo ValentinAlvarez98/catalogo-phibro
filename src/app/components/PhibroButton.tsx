@@ -5,9 +5,9 @@ import Link from 'next/link'
 export type PhibroButtonProps = {
       title: string;
       variant?: boolean;
-      index?: number;  // Este índice nos ayudará a alternar las animaciones
+      index?: number; 
       link?: string;
-      chiquito?: string;  // Si está presente, el botón será más pequeño
+      chiquito?: boolean;  
 }
 
 export function PhibroButton({ title, variant, index, link, chiquito }: PhibroButtonProps) {
@@ -20,7 +20,7 @@ export function PhibroButton({ title, variant, index, link, chiquito }: PhibroBu
       };
 
       // Elegir animación basada en el índice (par = derecha, impar = izquierda)
-      const initialVariant = index % 2 === 0 ? "hiddenRight" : "hiddenLeft";
+      const initialVariant = index && index % 2 === 0 ? "hiddenRight" : "hiddenLeft";
 
       // Animación de click (pequeño escalado al hacer click)
       const clickAnimation = {
@@ -29,7 +29,7 @@ export function PhibroButton({ title, variant, index, link, chiquito }: PhibroBu
       };
 
       // Definir el tamaño y padding según el parámetro 'chiquito'
-      const buttonSize = chiquito ? 'w-[280px] py-2 px-3 text-2xl' : 'w-[500px] py-9 text-4xl';
+      const buttonSize = chiquito ? 'w-[280px] py-3 px-5 text-3xl' : 'w-[500px] py-9 text-4xl';
 
       return (
             <Link href={`http://localhost:3000/${link}`}>

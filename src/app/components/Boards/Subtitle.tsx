@@ -30,7 +30,7 @@ export function Subtitle({ position, title, variant, text }: SubtitleProps) {
                         initial={{ opacity: 0, y: 20, skewX: 0, zIndex: -10 }} // Igual para el párrafo
                         animate={{ opacity: 1, y: 0, skewX: 0, zIndex: -10 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className={`${position !== 'left' ? "pl-10 pr-40" : "px-20 text-start pl-40"} leading-[45px] mt-14 text-3xl text-blue`}
+                        className={`${position !== 'left' ? "pl-10 pr-40" : "px-20 text-start pl-40"} leading-[35px] mt-4 text-3xl text-blue`}
                   >
                         {text}
                   </motion.p>

@@ -4,12 +4,13 @@ import { PhibroNavegation } from "../components/PhibroNavegation";
 
 
 
-export default async function InstitucionalPage() {
+
+export default  function InstitucionalPage() {
 
 
       return (
 
-            <div className="mt-80">
+            <div className="mt-[400px]">
                   <PhibroNavegation  nextStep={"institucional/2"} position={true} />
                   <Title title={"INSTITUCIONAL"} marginBottom />
                   <section className="flex flex-col gap-40 items-center justify-center w-full">
@@ -19,7 +20,9 @@ export default async function InstitucionalPage() {
                  
                   <Subtitle title={"MISIÓN"} position={"left"}  text={"Brindando soluciones seguras y efectivas para los desafíos únicos de nuestros clientes"}/>
                   </section>
-            </div>
+
+                  
+            </div>      
 
       )
 

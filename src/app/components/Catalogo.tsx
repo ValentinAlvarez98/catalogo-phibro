@@ -14,8 +14,8 @@ export function Catalogo() {
                   <PhibroNavegation nextStep={"catalogo/1"} position={false} />
 
                   <div className=" relative flex flex-col items-center justify-center gap-20 min-h-screen ">
-                        <div className='mr-auto ml-8 mt-20 -z-10'>
-                              <Title title={"CATÁLOGO"} />
+                        <div className='mr-auto ml-8  -z-10'>
+                              <Title title={"SOLUCIONES PHIBRO"} />
                         </div>
                         <PhibroButton title={"ANTICOCCIDIANOS Y ANTIBIÓTICOS"} variant={false} index={1} link={"catalogo/1"}></ PhibroButton>
                         <PhibroButton title={"ESPECIALIDADES NUTRICIONALES"} variant={false} index={2} link={"catalogo/2"}></ PhibroButton>
